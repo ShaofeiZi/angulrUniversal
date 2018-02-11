@@ -1,32 +1,3 @@
-angular CLI 1.6内置了 Angular Universal 服务端渲染。解放webpack配置的痛苦。
-## 新建项目
-```
-ng new angulrUniversal
-cd angulrUniversal
-```
-## 加入Angular Universal
-```
-ng g universal universal
-npm i
-```
-
-![](https://user-gold-cdn.xitu.io/2018/2/12/16185aa22f2fb113?w=1078&h=254&f=png&s=84401)
-有兴趣的可以研究下改的什么，建议瞅瞅
-## 然后修改下package.json的build命令
-```
-"build": "ng build --prod && ng build --prod --app universal --output-hashing=none",
-```
-然后打个包
-```
-npm run build
-```
-##  安装 Angular 官方提供的 Express 引擎
-```
-npm i express @nguniversal/express-engine
-```
-## 建立server端
-新建个server.js
-```
 'use strict';
 
 /* Node 专的 Zone.js */
@@ -68,9 +39,3 @@ app.get('*', angularRouter);
 app.listen(4200, () => {
    console.log(`Listening on http://localhost:4200`); 
 });
-```
-## 启动
-```
-node server.js
-```
-打开http://localhost:4200  OK完工
